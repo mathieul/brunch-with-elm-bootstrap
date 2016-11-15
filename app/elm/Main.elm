@@ -7,5 +7,5 @@ import Html.Attributes exposing (class)
 main =
     div [ class "jumbotron" ]
         [ h1 []
-            [ text "Hello Elm 0.17" ]
+            [ text "Hello Elm 0.18" ]
         ]
