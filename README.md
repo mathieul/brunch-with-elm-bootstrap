@@ -1,4 +1,4 @@
-# Brunch + Elm 0.17 + Sass + Bootstrap 4 #
+# Brunch + Elm 0.18 + Sass + Bootstrap 4 #
 
 This is an [Elm](http://elm-lang.org) application skeleton for [Brunch](http://brunch.io).
 It comes setup with Babel, Sass and Bootstrap 4.
@@ -130,7 +130,7 @@ and start with a basic Elm application:
     main =
         div [ class "jumbotron" ]
             [ h1 []
-                [ text "Hello Elm 0.17" ]
+                [ text "Hello Elm 0.18" ]
             ]
 
 and finally we open `http://localhost:3333` in a new browser window. We should see our message rendered by `Main.elm`.
