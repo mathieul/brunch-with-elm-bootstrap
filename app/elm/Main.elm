@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import Data exposing (Post)
 import Html as H exposing (Html)
-import Html.Attributes as A exposing (class)
+import Html.Attributes as A exposing (class, id)
 import Html.Events as E
 import Http
 import Json.Decode as JD
@@ -162,10 +162,12 @@ view model =
 
 nav : Html Msg
 nav =
-    H.ul []
-        [ H.li [] [ link HomeR "Home" ]
-        , H.li [] [ link PostsR "Posts" ]
-        , H.li [] [ link AboutR "About" ]
+    H.nav [ class "navbar" ]
+        [ H.ul [ class "nav nav-tabs" ]
+            [ H.li [ class "nav-link" ] [ link HomeR "Home" ]
+            , H.li [ class "nav-link" ] [ link PostsR "Posts" ]
+            , H.li [ class "nav-link" ] [ link AboutR "About" ]
+            ]
         ]
 
 
