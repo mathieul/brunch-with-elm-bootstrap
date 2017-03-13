@@ -1,4 +1,4 @@
-module Data exposing (Post, fetchPosts, lookupPost)
+module Post exposing (Post, fetchPosts, lookupPost)
 
 import Http
 import Json.Decode as JD exposing (Decoder, int, string)
@@ -32,5 +32,5 @@ posts =
 
 fetchPosts : Task Http.Error (List Post)
 fetchPosts =
-    Http.get "/api/posts" posts
+    Http.get "/api/posts.json" posts
         |> Http.toTask

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Routing using elm-route",
+    "body": "Read more about `Bogdanp/elm-route` at http://package.elm-lang.org/packages/Bogdanp/elm-route/latest"
+  },
+  {
+    "id": 2,
+    "title": "Styling using elm-bootstrap",
+    "body": "Read Bootstrap V4 docs at https://v4-alpha.getbootstrap.com and `rundis/elm-bootstrap`'s doc is at http://elm-bootstrap.info"
+  }
+]
