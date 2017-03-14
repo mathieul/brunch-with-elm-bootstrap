@@ -9,6 +9,12 @@ You can use it with [Brunch](http://brunch.io) to generate a new application or 
 
 Clone is repo manually or use `brunch new dir -s mathieul/brunch-with-elm-bootstrap`
 
+## About the Code Example ##
+
+The code example is an adaptation of the code at [elm-community/elm-route]( https://github.com/elm-community/elm-route/tree/master/examples/app) by @mccrodp.
+
+You can delete the example by removing the files `app/elm/*.elm`. Make sure to update `brunch-config.js` with the name of your main Elm files (setup to `app/elm/Main.elm` by default). You can also disable Elm history debugger by removing the `makeParameters: '--debug'` option.
+
 ## Getting Started ##
 
 * Install (if you don't have them):
