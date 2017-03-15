@@ -9,7 +9,7 @@ module.exports = {
     elmBrunch: {
       mainModules: ['app/elm/Main.elm'],
       outputFolder: 'public/js',
-      /* --debug parameter activates Elm 0.18 history debugger */
+      /* '--debug' parameter activates Elm 0.18 history debugger */
       makeParameters: '--debug'
     },
     sass: {
@@ -17,6 +17,15 @@ module.exports = {
         includePaths: [
           'node_modules/bootstrap/scss'
         ]
+      }
+    }
+  },
+  overrides: {
+    production: {
+      plugins: {
+        elmBrunch: {
+          makeParameters: []
+        }
       }
     }
   }
