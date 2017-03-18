@@ -1,14 +1,15 @@
 module Main exposing (main)
 
 import Post exposing (Post)
-import Html as H exposing (Html)
-import Html.Attributes as A exposing (class, id)
+import Html as H exposing (Html, text, div)
+import Html.Attributes as A exposing (class)
 import Html.Events as E
 import Http
 import Json.Decode as JD
 import Navigation exposing (Location)
 import Routes exposing (Sitemap(..))
 import Task
+import Markdown
 import Bootstrap.Grid as Grid
 import Bootstrap.Navbar as Navbar
 import Bootstrap.Alert as Alert
@@ -150,7 +151,7 @@ view : Model -> Html Msg
 view model =
     Grid.container []
         [ navigation model
-        , H.div [ class "mt-3" ] [ content model ]
+        , div [ class "mt-3" ] [ content model ]
         ]
 
 
@@ -158,11 +159,11 @@ navigation : Model -> Html Msg
 navigation model =
     Navbar.config NavbarMsg
         |> Navbar.withAnimation
-        |> Navbar.brand (linkAttrs HomeR) [ H.text "Example" ]
+        |> Navbar.brand (linkAttrs HomeR) [ text "Example" ]
         |> Navbar.items
-            [ Navbar.itemLink (linkAttrs HomeR) [ H.text "Home" ]
-            , Navbar.itemLink (linkAttrs PostsR) [ H.text "Posts" ]
-            , Navbar.itemLink (linkAttrs AboutR) [ H.text "About" ]
+            [ Navbar.itemLink (linkAttrs HomeR) [ text "Home" ]
+            , Navbar.itemLink (linkAttrs PostsR) [ text "Posts" ]
+            , Navbar.itemLink (linkAttrs AboutR) [ text "About" ]
             ]
         |> Navbar.view model.navbarState
 
@@ -199,36 +200,36 @@ content ({ route } as model) =
 
 notFound : Html Msg
 notFound =
-    Alert.danger [ H.text "Page not found" ]
+    Alert.danger [ text "Page not found" ]
 
 
 home : Html Msg
 home =
-    H.div []
-        [ H.h3 [ class "mb-2" ] [ H.text "Home" ]
+    div []
+        [ H.h3 [ class "mb-2" ] [ text "Home" ]
         , H.p []
             [ H.a
                 (linkAttrs <| PostR 123)
-                [ H.text "Click to fetch post #123 which doesn't exist" ]
+                [ text "Click to fetch post #123 which doesn't exist" ]
             ]
         ]
 
 
 about : Html Msg
 about =
-    Alert.info [ H.text "About page..." ]
+    Alert.info [ text "About page..." ]
 
 
 loading : Html Msg
 loading =
-    Alert.warning [ H.text "Loading ..." ]
+    Alert.warning [ text "Loading ..." ]
 
 
 post : Post -> Html Msg
 post post =
-    H.div []
-        [ H.h3 [ class "mb-2" ] [ H.text post.title ]
-        , H.p [] [ H.text post.body ]
+    div []
+        [ H.h3 [ class "mb-2" ] [ text post.title ]
+        , H.p [] [ Markdown.toHtml [] post.body ]
         ]
 
 
@@ -236,10 +237,10 @@ posts : List Post -> Html Msg
 posts posts =
     let
         postLink post =
-            H.li [] [ H.a (linkAttrs <| PostR post.id) [ H.text post.title ] ]
+            H.li [] [ H.a (linkAttrs <| PostR post.id) [ text post.title ] ]
     in
-        H.div []
-            [ H.h3 [ class "mb-2" ] [ H.text "Posts" ]
+        div []
+            [ H.h3 [ class "mb-2" ] [ text "Posts" ]
             , H.ul [] (List.map postLink posts)
             ]
 
