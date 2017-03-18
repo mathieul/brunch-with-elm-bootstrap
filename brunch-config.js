@@ -6,18 +6,26 @@ module.exports = {
   },
 
   plugins: {
-    babel: {
-      presets: ['es2015']
-    },
     elmBrunch: {
       mainModules: ['app/elm/Main.elm'],
-      outputFolder: 'public/js'
+      outputFolder: 'public/js',
+      /* '--debug' parameter activates Elm 0.18 history debugger */
+      makeParameters: '--debug'
     },
     sass: {
       options: {
         includePaths: [
           'node_modules/bootstrap/scss'
         ]
+      }
+    }
+  },
+  overrides: {
+    production: {
+      plugins: {
+        elmBrunch: {
+          makeParameters: []
+        }
       }
     }
   }
