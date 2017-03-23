@@ -12,22 +12,27 @@ type Sitemap
     | NotFoundR
 
 
+homeR : Route Sitemap
 homeR =
     HomeR := static ""
 
 
+postsR : Route Sitemap
 postsR =
     PostsR := static "posts"
 
 
+postR : Route Sitemap
 postR =
     PostR := static "posts" </> int
 
 
+aboutR : Route Sitemap
 aboutR =
     AboutR := static "about"
 
 
+sitemap : Router Sitemap
 sitemap =
     router [ homeR, postsR, postR, aboutR ]
 
